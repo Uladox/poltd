@@ -69,6 +69,7 @@ main(int argc, char *argv[])
 	syslog(LOG_NOTICE, "successfully started daemon\n");
 
 	if ((sid = setsid()) < 0) {
+	        joiner_free(jnr);
 		syslog(LOG_ERR, "could not create process group\n");
 		exit(EXIT_FAILURE);
 	}
